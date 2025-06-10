@@ -174,11 +174,11 @@
       position: relative;
     }
 
-    /* Ramo de girasoles completo y realista */
+    /* Ramo de girasoles grande y bonito */
     .sunflower-bouquet {
       position: relative;
-      width: 320px;
-      height: 400px;
+      width: 450px;
+      height: 350px;
       z-index: 12;
       margin-top: 20px;
     }
@@ -190,142 +190,166 @@
       opacity: 0;
       transform: translateY(50px) scale(0.7);
       animation: bouquetAppear 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Base del ramo - papel envolvente */
-    .bouquet-base {
+    /* Fondo decorativo para el ramo */
+    .bouquet-background {
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 120px;
-      background: linear-gradient(135deg, #f4f4f4, #e8e8e8);
-      border-radius: 0 0 10px 10px;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 3;
-      opacity: 0;
-      animation: fadeIn 1s ease 6.5s forwards;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 235, 59, 0.1) 0%, rgba(255, 193, 7, 0.05) 50%, transparent 100%);
+      border-radius: 50%;
+      z-index: 1;
     }
 
-    /* Cinta decorativa */
-    .ribbon {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 15px;
-      background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
-      border-radius: 8px;
-      z-index: 4;
-      opacity: 0;
-      animation: fadeIn 1s ease 7s forwards;
-      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
-    }
-
-    .ribbon::before {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      background: linear-gradient(135deg, var(--accent-gold), #e67e22);
-      border-radius: 10px;
-      z-index: -1;
-    }
-
-    /* Tallos agrupados naturalmente */
-    .stems {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    .stem {
-      position: absolute;
-      bottom: 0;
-      width: 6px;
-      background: linear-gradient(to top, var(--brown) 0%, var(--dark-green) 30%, var(--green) 100%);
-      border-radius: 3px;
-      transform-origin: bottom center;
-      box-shadow: inset 1px 0 2px rgba(0,0,0,0.2);
-    }
-
-    /* Tallos con alturas y posiciones más naturales */
-    .stem-1 { left: -25px; height: 200px; transform: translateX(-50%) rotate(-8deg); }
-    .stem-2 { left: -15px; height: 220px; transform: translateX(-50%) rotate(-4deg); }
-    .stem-3 { left: -5px; height: 240px; transform: translateX(-50%) rotate(-2deg); }
-    .stem-4 { left: 5px; height: 250px; transform: translateX(-50%) rotate(0deg); }
-    .stem-5 { left: 15px; height: 230px; transform: translateX(-50%) rotate(2deg); }
-    .stem-6 { left: 25px; height: 210px; transform: translateX(-50%) rotate(4deg); }
-    .stem-7 { left: 35px; height: 190px; transform: translateX(-50%) rotate(8deg); }
-
-    /* Girasoles agrupados de manera más natural */
+    /* Girasoles organizados en forma de ramo circular */
     .flowers {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      width: 100%;
+      height: 100%;
       z-index: 5;
     }
 
     .sunflower {
       position: absolute;
-      font-size: 3.5rem;
-      animation: flowerBounce 0.6s ease-out forwards;
+      font-size: 4.5rem;
+      animation: flowerBounce 0.8s ease-out forwards;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: all 0.4s ease;
       opacity: 0;
-      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+      filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.3));
       z-index: 5;
     }
 
     .sunflower:hover {
-      transform: scale(1.15) rotate(10deg);
-      filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.3));
+      transform: scale(1.25) rotate(15deg);
+      filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.4));
+      z-index: 20;
     }
 
-    /* Distribución más natural de los girasoles */
-    .sunflower-1 { top: 20px; left: -30px; animation-delay: 5.5s; z-index: 8; }
-    .sunflower-2 { top: 10px; left: -10px; animation-delay: 5.6s; z-index: 9; }
-    .sunflower-3 { top: 0px; left: 10px; animation-delay: 5.7s; z-index: 10; }
-    .sunflower-4 { top: 15px; left: 30px; animation-delay: 5.8s; z-index: 7; }
-    .sunflower-5 { top: 40px; left: -20px; animation-delay: 5.9s; z-index: 6; }
-    .sunflower-6 { top: 35px; left: 5px; animation-delay: 6.0s; z-index: 7; }
-    .sunflower-7 { top: 45px; left: 25px; animation-delay: 6.1s; z-index: 5; }
-    .sunflower-8 { top: 65px; left: -10px; animation-delay: 6.2s; z-index: 4; }
-    .sunflower-9 { top: 60px; left: 15px; animation-delay: 6.3s; z-index: 6; }
+    /* Distribución circular grande y bonita */
+    .sunflower-1 { 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 5.5s;
+      z-index: 15;
+      font-size: 5rem;
+    }
+    .sunflower-2 { 
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 5.6s;
+      z-index: 12;
+    }
+    .sunflower-3 { 
+      top: 35%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      animation-delay: 5.7s;
+      z-index: 10;
+    }
+    .sunflower-4 { 
+      top: 35%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      animation-delay: 5.8s;
+      z-index: 10;
+    }
+    .sunflower-5 { 
+      top: 65%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      animation-delay: 5.9s;
+      z-index: 8;
+    }
+    .sunflower-6 { 
+      top: 65%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.0s;
+      z-index: 8;
+    }
+    .sunflower-7 { 
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.1s;
+      z-index: 6;
+    }
+    .sunflower-8 { 
+      top: 50%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.2s;
+      z-index: 11;
+    }
+    .sunflower-9 { 
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.3s;
+      z-index: 11;
+    }
+    .sunflower-10 { 
+      top: 15%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.4s;
+      z-index: 9;
+    }
+    .sunflower-11 { 
+      top: 15%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.5s;
+      z-index: 9;
+    }
+    .sunflower-12 { 
+      top: 85%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.6s;
+      z-index: 7;
+    }
+    .sunflower-13 { 
+      top: 85%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      animation-delay: 6.7s;
+      z-index: 7;
+    }
 
-    /* Hojas distribuidas naturalmente en los tallos */
+    /* Hojas decorativas alrededor del ramo */
     .leaves {
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
       z-index: 3;
     }
 
     .leaf {
       position: absolute;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       color: var(--green);
-      animation: leafSway 3s ease-in-out infinite;
+      animation: leafSway 4s ease-in-out infinite;
       opacity: 0;
-      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+      animation-fill-mode: forwards;
     }
 
-    .leaf-1 { left: -30px; bottom: 80px; animation-delay: 6.7s; transform: rotate(-20deg); }
-    .leaf-2 { left: -10px; bottom: 100px; animation-delay: 6.8s; transform: rotate(-10deg); }
-    .leaf-3 { left: 10px; bottom: 110px; animation-delay: 6.9s; transform: rotate(10deg); }
-    .leaf-4 { left: 30px; bottom: 90px; animation-delay: 7.0s; transform: rotate(20deg); }
-    .leaf-5 { left: -20px; bottom: 60px; animation-delay: 7.1s; transform: rotate(-15deg); }
-    .leaf-6 { left: 20px; bottom: 70px; animation-delay: 7.2s; transform: rotate(15deg); }
-    .leaf-7 { left: 0px; bottom: 120px; animation-delay: 7.3s; transform: rotate(0deg); }
-    .leaf-8 { left: -35px; bottom: 110px; animation-delay: 7.4s; transform: rotate(-25deg); }
+    .leaf-1 { left: 10%; top: 10%; animation-delay: 7.0s; transform: rotate(-25deg); }
+    .leaf-2 { right: 10%; top: 10%; animation-delay: 7.1s; transform: rotate(25deg); }
+    .leaf-3 { left: 5%; bottom: 10%; animation-delay: 7.2s; transform: rotate(-45deg); }
+    .leaf-4 { right: 5%; bottom: 10%; animation-delay: 7.3s; transform: rotate(45deg); }
+    .leaf-5 { left: 50%; top: 5%; animation-delay: 7.4s; transform: rotate(0deg) translateX(-50%); }
+    .leaf-6 { left: 50%; bottom: 5%; animation-delay: 7.5s; transform: rotate(180deg) translateX(-50%); }
+    .leaf-7 { left: 2%; top: 50%; animation-delay: 7.6s; transform: rotate(-90deg); }
+    .leaf-8 { right: 2%; top: 50%; animation-delay: 7.7s; transform: rotate(90deg); }
 
     .message {
       font-size: 1.8rem;
@@ -407,11 +431,11 @@
     @keyframes bouquetAppear {
       0% {
         opacity: 0;
-        transform: translateY(50px) scale(0.7) rotate(-5deg);
+        transform: translateY(50px) scale(0.6) rotate(-10deg);
       }
       70% {
         opacity: 1;
-        transform: translateY(-10px) scale(1.05) rotate(2deg);
+        transform: translateY(-15px) scale(1.1) rotate(5deg);
       }
       100% {
         opacity: 1;
@@ -422,26 +446,26 @@
     @keyframes flowerBounce {
       0% {
         opacity: 0;
-        transform: translateY(20px) scale(0.3) rotate(-180deg);
+        transform: translate(-50%, -50%) scale(0.2) rotate(-180deg);
       }
       60% {
         opacity: 1;
-        transform: translateY(-10px) scale(1.2) rotate(10deg);
+        transform: translate(-50%, -50%) scale(1.3) rotate(20deg);
       }
       100% {
         opacity: 1;
-        transform: translateY(0) scale(1) rotate(0deg);
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
       }
     }
 
     @keyframes leafSway {
       0%, 100% {
-        transform: rotate(-5deg);
         opacity: 1;
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
       }
       50% {
-        transform: rotate(5deg);
-        opacity: 0.8;
+        opacity: 0.7;
+        filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
       }
     }
 
@@ -489,12 +513,16 @@
       .heart.top { top: -80px; }
       
       .sunflower-bouquet {
-        width: 280px;
-        height: 350px;
+        width: 380px;
+        height: 300px;
       }
       
       .sunflower {
-        font-size: 3rem;
+        font-size: 3.5rem;
+      }
+      
+      .sunflower-1 {
+        font-size: 4rem;
       }
       
       .message {
@@ -513,12 +541,16 @@
       }
       
       .sunflower-bouquet {
-        width: 240px;
-        height: 300px;
+        width: 320px;
+        height: 250px;
       }
       
       .sunflower {
-        font-size: 2.5rem;
+        font-size: 3rem;
+      }
+      
+      .sunflower-1 {
+        font-size: 3.5rem;
       }
       
       .message {
@@ -610,25 +642,13 @@
       </div>
     </div>
     
-    <!-- Ramo de girasoles completo y realista -->
+    <!-- Ramo de girasoles grande y bonito -->
     <div class="sunflower-bouquet">
       <div class="bouquet-wrapper">
-        <!-- Base del ramo con papel envolvente -->
-        <div class="bouquet-base"></div>
-        <div class="ribbon"></div>
+        <!-- Fondo decorativo -->
+        <div class="bouquet-background"></div>
         
-        <!-- Tallos agrupados naturalmente -->
-        <div class="stems">
-          <div class="stem stem-1"></div>
-          <div class="stem stem-2"></div>
-          <div class="stem stem-3"></div>
-          <div class="stem stem-4"></div>
-          <div class="stem stem-5"></div>
-          <div class="stem stem-6"></div>
-          <div class="stem stem-7"></div>
-        </div>
-
-        <!-- Hojas distribuidas en los tallos -->
+        <!-- Hojas decorativas alrededor -->
         <div class="leaves">
           <div class="leaf leaf-1">🍃</div>
           <div class="leaf leaf-2">🍃</div>
@@ -640,7 +660,7 @@
           <div class="leaf leaf-8">🍃</div>
         </div>
 
-        <!-- Girasoles agrupados naturalmente -->
+        <!-- Girasoles en formación circular -->
         <div class="flowers">
           <div class="sunflower sunflower-1">🌻</div>
           <div class="sunflower sunflower-2">🌻</div>
@@ -651,6 +671,10 @@
           <div class="sunflower sunflower-7">🌻</div>
           <div class="sunflower sunflower-8">🌻</div>
           <div class="sunflower sunflower-9">🌻</div>
+          <div class="sunflower sunflower-10">🌻</div>
+          <div class="sunflower sunflower-11">🌻</div>
+          <div class="sunflower sunflower-12">🌻</div>
+          <div class="sunflower sunflower-13">🌻</div>
         </div>
       </div>
     </div>
@@ -724,7 +748,7 @@
     // Event listeners
     document.addEventListener('DOMContentLoaded', () => {
       // Crear primera nieve después de que aparezca el ramo
-      setTimeout(createHeartSnow, 7000);
+      setTimeout(createHeartSnow, 8000);
       
       // Repetir la nieve de corazones cada 15 segundos
       setInterval(createHeartSnow, 15000);
@@ -746,7 +770,7 @@
           e.stopPropagation();
           flower.style.animation = 'none';
           flower.offsetHeight; // Trigger reflow
-          flower.style.animation = 'flowerBounce 0.6s ease-out';
+          flower.style.animation = 'flowerBounce 0.8s ease-out';
           createFloatingHeart();
         });
       });

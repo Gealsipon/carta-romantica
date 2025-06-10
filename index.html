@@ -18,6 +18,7 @@
       --shadow: rgba(0, 0, 0, 0.2);
       --green: #27ae60;
       --dark-green: #1e8449;
+      --brown: #8B4513;
     }
 
     * {
@@ -173,11 +174,11 @@
       position: relative;
     }
 
-    /* Ramo de girasoles - Ahora aparece separado del sobre */
+    /* Ramo de girasoles completo y realista */
     .sunflower-bouquet {
       position: relative;
-      width: 300px;
-      height: 350px;
+      width: 320px;
+      height: 400px;
       z-index: 12;
       margin-top: 20px;
     }
@@ -191,89 +192,140 @@
       animation: bouquetAppear 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 5s;
     }
 
-    /* Tallos verdes */
+    /* Base del ramo - papel envolvente */
+    .bouquet-base {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 120px;
+      background: linear-gradient(135deg, #f4f4f4, #e8e8e8);
+      border-radius: 0 0 10px 10px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 3;
+      opacity: 0;
+      animation: fadeIn 1s ease 6.5s forwards;
+    }
+
+    /* Cinta decorativa */
+    .ribbon {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 15px;
+      background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+      border-radius: 8px;
+      z-index: 4;
+      opacity: 0;
+      animation: fadeIn 1s ease 7s forwards;
+      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+    }
+
+    .ribbon::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(135deg, var(--accent-gold), #e67e22);
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    /* Tallos agrupados naturalmente */
     .stems {
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 2;
     }
 
     .stem {
       position: absolute;
       bottom: 0;
-      width: 4px;
-      height: 180px;
-      background: linear-gradient(to top, var(--dark-green), var(--green));
-      border-radius: 2px;
-      transform-origin: bottom;
+      width: 6px;
+      background: linear-gradient(to top, var(--brown) 0%, var(--dark-green) 30%, var(--green) 100%);
+      border-radius: 3px;
+      transform-origin: bottom center;
+      box-shadow: inset 1px 0 2px rgba(0,0,0,0.2);
     }
 
-    .stem-1 { left: -30px; transform: translateX(-50%) rotate(-15deg); }
-    .stem-2 { left: -20px; transform: translateX(-50%) rotate(-8deg); }
-    .stem-3 { left: -10px; transform: translateX(-50%) rotate(-3deg); }
-    .stem-4 { left: 0px; transform: translateX(-50%) rotate(0deg); }
-    .stem-5 { left: 10px; transform: translateX(-50%) rotate(3deg); }
-    .stem-6 { left: 20px; transform: translateX(-50%) rotate(8deg); }
-    .stem-7 { left: 30px; transform: translateX(-50%) rotate(15deg); }
+    /* Tallos con alturas y posiciones más naturales */
+    .stem-1 { left: -25px; height: 200px; transform: translateX(-50%) rotate(-8deg); }
+    .stem-2 { left: -15px; height: 220px; transform: translateX(-50%) rotate(-4deg); }
+    .stem-3 { left: -5px; height: 240px; transform: translateX(-50%) rotate(-2deg); }
+    .stem-4 { left: 5px; height: 250px; transform: translateX(-50%) rotate(0deg); }
+    .stem-5 { left: 15px; height: 230px; transform: translateX(-50%) rotate(2deg); }
+    .stem-6 { left: 25px; height: 210px; transform: translateX(-50%) rotate(4deg); }
+    .stem-7 { left: 35px; height: 190px; transform: translateX(-50%) rotate(8deg); }
 
-    /* Girasoles del ramo */
+    /* Girasoles agrupados de manera más natural */
     .flowers {
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 5;
     }
 
     .sunflower {
       position: absolute;
-      font-size: 3rem;
+      font-size: 3.5rem;
       animation: flowerBounce 0.6s ease-out forwards;
       cursor: pointer;
       transition: transform 0.3s ease;
       opacity: 0;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+      z-index: 5;
     }
 
     .sunflower:hover {
-      transform: scale(1.2) rotate(10deg);
+      transform: scale(1.15) rotate(10deg);
+      filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.3));
     }
 
-    /* Posiciones de los girasoles en el ramo */
-    .sunflower-1 { top: 20px; left: -40px; animation-delay: 5.5s; }
-    .sunflower-2 { top: 10px; left: -20px; animation-delay: 5.6s; }
-    .sunflower-3 { top: 0px; left: 0px; animation-delay: 5.7s; }
-    .sunflower-4 { top: 10px; left: 20px; animation-delay: 5.8s; }
-    .sunflower-5 { top: 20px; left: 40px; animation-delay: 5.9s; }
-    .sunflower-6 { top: 40px; left: -30px; animation-delay: 6.0s; }
-    .sunflower-7 { top: 35px; left: -10px; animation-delay: 6.1s; }
-    .sunflower-8 { top: 30px; left: 10px; animation-delay: 6.2s; }
-    .sunflower-9 { top: 35px; left: 30px; animation-delay: 6.3s; }
-    .sunflower-10 { top: 60px; left: -20px; animation-delay: 6.4s; }
-    .sunflower-11 { top: 55px; left: 0px; animation-delay: 6.5s; }
-    .sunflower-12 { top: 60px; left: 20px; animation-delay: 6.6s; }
+    /* Distribución más natural de los girasoles */
+    .sunflower-1 { top: 20px; left: -30px; animation-delay: 5.5s; z-index: 8; }
+    .sunflower-2 { top: 10px; left: -10px; animation-delay: 5.6s; z-index: 9; }
+    .sunflower-3 { top: 0px; left: 10px; animation-delay: 5.7s; z-index: 10; }
+    .sunflower-4 { top: 15px; left: 30px; animation-delay: 5.8s; z-index: 7; }
+    .sunflower-5 { top: 40px; left: -20px; animation-delay: 5.9s; z-index: 6; }
+    .sunflower-6 { top: 35px; left: 5px; animation-delay: 6.0s; z-index: 7; }
+    .sunflower-7 { top: 45px; left: 25px; animation-delay: 6.1s; z-index: 5; }
+    .sunflower-8 { top: 65px; left: -10px; animation-delay: 6.2s; z-index: 4; }
+    .sunflower-9 { top: 60px; left: 15px; animation-delay: 6.3s; z-index: 6; }
 
-    /* Hojas del ramo */
+    /* Hojas distribuidas naturalmente en los tallos */
     .leaves {
       position: absolute;
-      bottom: 60px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 3;
     }
 
     .leaf {
       position: absolute;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--green);
       animation: leafSway 3s ease-in-out infinite;
       opacity: 0;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
     }
 
-    .leaf-1 { left: -35px; bottom: 50px; animation-delay: 6.7s; }
-    .leaf-2 { left: -15px; bottom: 30px; animation-delay: 6.8s; }
-    .leaf-3 { left: 5px; bottom: 40px; animation-delay: 6.9s; }
-    .leaf-4 { left: 25px; bottom: 35px; animation-delay: 7.0s; }
-    .leaf-5 { left: -25px; bottom: 10px; animation-delay: 7.1s; }
-    .leaf-6 { left: 15px; bottom: 15px; animation-delay: 7.2s; }
+    .leaf-1 { left: -30px; bottom: 80px; animation-delay: 6.7s; transform: rotate(-20deg); }
+    .leaf-2 { left: -10px; bottom: 100px; animation-delay: 6.8s; transform: rotate(-10deg); }
+    .leaf-3 { left: 10px; bottom: 110px; animation-delay: 6.9s; transform: rotate(10deg); }
+    .leaf-4 { left: 30px; bottom: 90px; animation-delay: 7.0s; transform: rotate(20deg); }
+    .leaf-5 { left: -20px; bottom: 60px; animation-delay: 7.1s; transform: rotate(-15deg); }
+    .leaf-6 { left: 20px; bottom: 70px; animation-delay: 7.2s; transform: rotate(15deg); }
+    .leaf-7 { left: 0px; bottom: 120px; animation-delay: 7.3s; transform: rotate(0deg); }
+    .leaf-8 { left: -35px; bottom: 110px; animation-delay: 7.4s; transform: rotate(-25deg); }
 
     .message {
       font-size: 1.8rem;
@@ -437,12 +489,12 @@
       .heart.top { top: -80px; }
       
       .sunflower-bouquet {
-        width: 250px;
-        height: 300px;
+        width: 280px;
+        height: 350px;
       }
       
       .sunflower {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
       
       .message {
@@ -461,12 +513,12 @@
       }
       
       .sunflower-bouquet {
-        width: 200px;
-        height: 250px;
+        width: 240px;
+        height: 300px;
       }
       
       .sunflower {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       
       .message {
@@ -558,47 +610,50 @@
       </div>
     </div>
     
-    <!-- Ramo de girasoles separado -->
-<div class="sunflower-bouquet">
-  <div class="bouquet-wrapper">
-    <!-- Tallos verdes -->
-    <div class="stems">
-      <div class="stem stem-1"></div>
-      <div class="stem stem-2"></div>
-      <div class="stem stem-3"></div>
-      <div class="stem stem-4"></div>
-      <div class="stem stem-5"></div>
-      <div class="stem stem-6"></div>
-      <div class="stem stem-7"></div>
-    </div>
+    <!-- Ramo de girasoles completo y realista -->
+    <div class="sunflower-bouquet">
+      <div class="bouquet-wrapper">
+        <!-- Base del ramo con papel envolvente -->
+        <div class="bouquet-base"></div>
+        <div class="ribbon"></div>
+        
+        <!-- Tallos agrupados naturalmente -->
+        <div class="stems">
+          <div class="stem stem-1"></div>
+          <div class="stem stem-2"></div>
+          <div class="stem stem-3"></div>
+          <div class="stem stem-4"></div>
+          <div class="stem stem-5"></div>
+          <div class="stem stem-6"></div>
+          <div class="stem stem-7"></div>
+        </div>
 
-    <!-- Girasoles -->
-    <div class="flowers">
-      <div class="sunflower sunflower-1" style="top: 10px; left: -40px; animation-delay: 5.5s;">🌻</div>
-      <div class="sunflower sunflower-2" style="top: 5px; left: -20px; animation-delay: 5.6s;">🌻</div>
-      <div class="sunflower sunflower-3" style="top: 0px; left: 0px; animation-delay: 5.7s;">🌻</div>
-      <div class="sunflower sunflower-4" style="top: 10px; left: 20px; animation-delay: 5.8s;">🌻</div>
-      <div class="sunflower sunflower-5" style="top: 20px; left: 40px; animation-delay: 5.9s;">🌻</div>
-      <div class="sunflower sunflower-6" style="top: 35px; left: -30px; animation-delay: 6.0s;">🌻</div>
-      <div class="sunflower sunflower-7" style="top: 30px; left: -10px; animation-delay: 6.1s;">🌻</div>
-      <div class="sunflower sunflower-8" style="top: 25px; left: 10px; animation-delay: 6.2s;">🌻</div>
-      <div class="sunflower sunflower-9" style="top: 30px; left: 30px; animation-delay: 6.3s;">🌻</div>
-      <div class="sunflower sunflower-10" style="top: 50px; left: -20px; animation-delay: 6.4s;">🌻</div>
-      <div class="sunflower sunflower-11" style="top: 45px; left: 0px; animation-delay: 6.5s;">🌻</div>
-      <div class="sunflower sunflower-12" style="top: 50px; left: 20px; animation-delay: 6.6s;">🌻</div>
-    </div>
+        <!-- Hojas distribuidas en los tallos -->
+        <div class="leaves">
+          <div class="leaf leaf-1">🍃</div>
+          <div class="leaf leaf-2">🍃</div>
+          <div class="leaf leaf-3">🍃</div>
+          <div class="leaf leaf-4">🍃</div>
+          <div class="leaf leaf-5">🍃</div>
+          <div class="leaf leaf-6">🍃</div>
+          <div class="leaf leaf-7">🍃</div>
+          <div class="leaf leaf-8">🍃</div>
+        </div>
 
-    <!-- Hojas -->
-    <div class="leaves">
-      <div class="leaf leaf-1" style="left: -35px; bottom: 50px; animation-delay: 6.7s;">🍃</div>
-      <div class="leaf leaf-2" style="left: -15px; bottom: 30px; animation-delay: 6.8s;">🍃</div>
-      <div class="leaf leaf-3" style="left: 5px; bottom: 40px; animation-delay: 6.9s;">🍃</div>
-      <div class="leaf leaf-4" style="left: 25px; bottom: 35px; animation-delay: 7.0s;">🍃</div>
-      <div class="leaf leaf-5" style="left: -25px; bottom: 10px; animation-delay: 7.1s;">🍃</div>
-      <div class="leaf leaf-6" style="left: 15px; bottom: 15px; animation-delay: 7.2s;">🍃</div>
+        <!-- Girasoles agrupados naturalmente -->
+        <div class="flowers">
+          <div class="sunflower sunflower-1">🌻</div>
+          <div class="sunflower sunflower-2">🌻</div>
+          <div class="sunflower sunflower-3">🌻</div>
+          <div class="sunflower sunflower-4">🌻</div>
+          <div class="sunflower sunflower-5">🌻</div>
+          <div class="sunflower sunflower-6">🌻</div>
+          <div class="sunflower sunflower-7">🌻</div>
+          <div class="sunflower sunflower-8">🌻</div>
+          <div class="sunflower sunflower-9">🌻</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
     
     <div class="message">Valentine's Day for Daniela</div>
   </div>
@@ -709,17 +764,18 @@
         ¡Feliz San Valentín! 🌻💖
       `);
     });
+    
     window.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("bgMusic");
+      const audio = document.getElementById("bgMusic");
 
-  // Autoplay seguro
-  audio.volume = 0.5;
-  audio.play().catch(() => {
-    document.body.addEventListener("click", () => {
-      audio.play();
-    }, { once: true });
-  });
-});
+      // Autoplay seguro
+      audio.volume = 0.5;
+      audio.play().catch(() => {
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+    });
   </script>
 </body>
 </html>
